@@ -51,6 +51,25 @@
 2. 
 3. 
 
+
+## Event-Storming Archive
+
+
+## Domain Definition
+
+### Aggregate
+
+### Entity
+
+### Value Object
+
+### Domain Service
+
+### Factory
+
+### Domain Event
+
+
 ## Architecture Discussion Background
 ###第一次沟通
 
