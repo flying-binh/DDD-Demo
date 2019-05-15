@@ -1,10 +1,24 @@
-plugins {
-    id 'groovy'
-    id 'java'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
+    }
 }
 
-group 'com.thoughworks'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin:  'io.spring.dependency-management'
+
+group 'com.thoughtworks'
 version '1.0-SNAPSHOT'
+
+bootJar {
+    baseName = 'com.thoughtworks.ddd.sample'
+    mainClassName = "com.thoughtworks.ddd.sample.SampleApplication"
+    version =  '0.1.0'
+}
 
 sourceCompatibility = 1.8
 
@@ -13,6 +27,25 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile("org.springframework.boot:spring-boot-starter-web")
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin:  'io.spring.dependency-management'
+
+    group 'com.thoughtworks'
+    version '1.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    jar {
+        enabled = true
+    }
+
+    repositories {
+        mavenCentral()
+    }
 }
