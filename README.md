@@ -1,5 +1,10 @@
 # ddd-code-samples
 
+## Why We Coding This Sample
+最近几乎整个IT界都在讨论DDD，但目前来看DDD在很多项目中还处于实践探索阶段，不同的团队产生的DDD实践风格迥异。
+写这个sample的目的主要想把好几个项目中总结出来的经验以案例的形式分享出来，供大家在不同的项目中进行参考。
+同时也希望能够帮助大家在新的项目中可以更好的借鉴已有经验，减少DDD在实现落地上的资源浪费。
+
 ## Project Structure
 
 ![architecture](documents/architecture.jpg)
