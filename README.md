@@ -74,6 +74,10 @@
 
 ### Domain Event
 
+## API Style
+
+[**Google API Design Guide**](https://cloud.google.com/apis/design/)
+
 
 ## Architecture Discussion Background
 ###第一次沟通
