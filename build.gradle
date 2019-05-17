@@ -9,7 +9,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
-apply plugin:  'io.spring.dependency-management'
+apply plugin: 'io.spring.dependency-management'
 
 group 'com.thoughtworks'
 version '1.0-SNAPSHOT'
@@ -17,7 +17,7 @@ version '1.0-SNAPSHOT'
 bootJar {
     baseName = 'com.thoughtworks.ddd.sample'
     mainClassName = "com.thoughtworks.ddd.sample.SampleApplication"
-    version =  '0.1.0'
+    version = '0.1.0'
 }
 
 sourceCompatibility = 1.8
@@ -34,7 +34,7 @@ dependencies {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
-    apply plugin:  'io.spring.dependency-management'
+    apply plugin: 'io.spring.dependency-management'
     apply plugin: 'groovy'
 
     group 'com.thoughtworks'
@@ -50,9 +50,10 @@ subprojects {
     }
 
     dependencies {
-        compile("org.springframework.boot:spring-boot-starter-web")
-        compile "org.codehaus.groovy:groovy-all:2.5.7"
+        compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+        compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.5.7', ext: 'pom'
         testCompile "org.spockframework:spock-core:1.3-groovy-2.5"
+        testCompile group: 'org.spockframework', name: 'spock-spring', version: '1.3-groovy-2.5'
         testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     }
 }
