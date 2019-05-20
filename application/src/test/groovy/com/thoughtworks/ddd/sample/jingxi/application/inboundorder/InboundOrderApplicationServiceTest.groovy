@@ -24,7 +24,7 @@ class InboundOrderApplicationServiceTest extends Specification {
 
     def "we could create an inbound order"() {
         given: "an inbound-order-create-command"
-          def createCommand = new InboundOrderCreateCommand()
+          def createCommand = new InboundOrderCreateCommand(inboundType, shipmentInfo, warehouse, items, supplier, warehouseCode, supplierCode)
 
         when: "we create inbound order by the request"
           def inboundOrderDto = inboundOrderApplicationService.create(createCommand)

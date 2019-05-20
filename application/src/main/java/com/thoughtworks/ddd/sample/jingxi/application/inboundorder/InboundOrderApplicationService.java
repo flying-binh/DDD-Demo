@@ -5,6 +5,8 @@ import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.dto.InboundOr
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.mapper.InboundOrderMapper;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.AuditingInfo;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrder;
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Supplier;
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Warehouse;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.repository.InboundOrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,9 @@ public class InboundOrderApplicationService {
 
     public InboundOrderDto create(InboundOrderCreateCommand createCommand) {
         final InboundOrder order = new InboundOrder(
-                createCommand.getWarehouse(),
+                Warehouse.builder().code(createCommand.getWarehouseCode()).build(),
                 createCommand.getItems(),
-                createCommand.getSupplier(),
+                Supplier.builder().code(createCommand.getSupplierCode()).build(),
                 createCommand.getShipmentInfo(),
                 createCommand.getInboundType(),
                 new AuditingInfo(createCommand.getOperator(), createCommand.getTriggerTime()));
