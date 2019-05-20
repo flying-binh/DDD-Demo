@@ -1,0 +1,30 @@
+[
+  {
+    "id": "d342a09p3840354282345fde2",
+    "target_warehouse": "W839C1K3L8739",
+    "status": "DRAFT",
+    "type": "INBOUND",
+    "transaction_no": "P034S78D002489104992",
+    "delivery_date": "2019-05-19",
+    "operation_type": "PURCHASE",
+    "creator": "CAI Yongqiang",
+    "created_at": "2019-05-19-T13:45:22.467",
+    "supplier": "V8109C1132",
+    "modified_by": null,
+    "last_modified_at": null
+  },
+  {
+    "id": "d342a09p3840354298367fda1",
+    "target_warehouse": "W839C1K3L8739",
+    "status": "SUBMITTED",
+    "type": "INBOUND",
+    "transaction_no": "P034S78D665489104992",
+    "delivery_date": "2019-04-11",
+    "operation_type": "PURCHASE",
+    "creator": "LIN Shengwen",
+    "created_at": "2019-04-11-T09:15:41.689",
+    "supplier": "V8109C1132",
+    "modified_by": "Chen Wenjun",
+    "last_modified_at": "2019-04-12-T10:13:01.327"
+  }
+]

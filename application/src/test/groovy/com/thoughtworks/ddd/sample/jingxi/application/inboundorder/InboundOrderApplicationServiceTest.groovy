@@ -1,5 +1,6 @@
 package com.thoughtworks.ddd.sample.jingxi.application.inboundorder
 
+import com.thoughtworks.ddd.sample.jingxi.application.common.publish.EventPublisher
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.command.InboundOrderCreateCommand
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.AuditingInfo
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrder
@@ -20,11 +21,19 @@ class InboundOrderApplicationServiceTest extends Specification {
 
     def inboundOrderRepository = Mock(InboundOrderRepository)
 
-    def inboundOrderApplicationService = new InboundOrderApplicationService(inboundOrderRepository)
+    def eventPublisher = Mock(EventPublisher)
+
+    def inboundOrderApplicationService = new InboundOrderApplicationService(inboundOrderRepository, eventPublisher)
 
     def "we could create an inbound order"() {
         given: "an inbound-order-create-command"
-          def createCommand = new InboundOrderCreateCommand(inboundType, shipmentInfo, warehouse, items, supplier, warehouseCode, supplierCode)
+          def createCommand = new InboundOrderCreateCommand(InboundType.PURCHASE,
+                  new ShipmentInfo("E02394L934D3", LocalDate.now()),
+                  [new InboundOrderItem("N7130S2S0U876", 1000L)],
+                  "E0023J018439K129",
+                  "V2EK2304W991",
+                  "ZHAO Jialiang",
+                  LocalDateTime.now())
 
         when: "we create inbound order by the request"
           def inboundOrderDto = inboundOrderApplicationService.create(createCommand)
@@ -34,6 +43,9 @@ class InboundOrderApplicationServiceTest extends Specification {
           inboundOrderDto.id != null
         and: "its status should be draft"
           inboundOrderDto.status == OrderStatus.DRAFT
+
+        and: "there will be an inbound-order-created-event"
+          1 * eventPublisher.publish(_)
 
         and:
           1 * inboundOrderRepository.store({

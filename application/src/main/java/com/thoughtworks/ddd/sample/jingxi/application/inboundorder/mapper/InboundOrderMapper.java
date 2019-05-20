@@ -5,7 +5,9 @@ import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrder
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+import static org.mapstruct.ReportingPolicy.IGNORE;
+
+@Mapper(unmappedSourcePolicy = IGNORE)
 public interface InboundOrderMapper {
 
     InboundOrderMapper MAPPER = Mappers.getMapper(InboundOrderMapper.class);

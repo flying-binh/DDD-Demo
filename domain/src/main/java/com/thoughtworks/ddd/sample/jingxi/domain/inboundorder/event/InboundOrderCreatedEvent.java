@@ -1,4 +1,6 @@
 package com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.event;
 
-public class InboundOrderCreatedEvent {
+import com.thoughtworks.ddd.sample.jingxi.domain.common.event.BaseEvent;
+
+public class InboundOrderCreatedEvent extends BaseEvent {
 }

@@ -25,8 +25,7 @@ public class InboundOrderCreateCommand extends BaseCommand {
                                      String warehouseCode,
                                      String supplierCode,
                                      String operator,
-                                     LocalDateTime triggerTime
-    ) {
+                                     LocalDateTime triggerTime) {
         super(operator, triggerTime);
         this.inboundType = inboundType;
         this.shipmentInfo = shipmentInfo;
