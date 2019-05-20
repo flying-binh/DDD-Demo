@@ -1,5 +1,6 @@
 package com.thoughtworks.ddd.sample.jingxi.application.inboundorder.dto;
 
+import com.thoughtworks.ddd.sample.jingxing.domain.inboundorder.model.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxi.application.inboundorder.dto;
+package com.thoughtworks.ddd.sample.jingxing.domain.inboundorder.model;
 
 public enum OrderStatus {
     DRAFT,
