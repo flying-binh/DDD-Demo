@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxing.domain.inboundorder.model;
+package com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model;
 
 import java.time.LocalDateTime;
 

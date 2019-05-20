@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxing.domain.inboundorder.model;
+package com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +30,7 @@ public class InboundOrder {
         assert targetWarehouse != null;
         assert supplier != null;
         assert shipmentInfo != null;
+        assert items != null && !items.isEmpty();
 
         this.targetWarehouse = targetWarehouse;
         this.items = items;
