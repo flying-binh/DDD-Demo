@@ -22,10 +22,17 @@ public class InboundOrder {
 
     private AuditingInfo auditingInfo;
 
+    private InboundType inboundType;
+
+    @Builder.Default
+    private final OrderType type = OrderType.INBOUND;
+
+
     public InboundOrder(Warehouse targetWarehouse,
                         List<InboundOrderItem> items,
                         Supplier supplier,
                         ShipmentInfo shipmentInfo,
+                        InboundType inboundType,
                         AuditingInfo auditingInfo) {
         assert targetWarehouse != null;
         assert supplier != null;
@@ -36,6 +43,7 @@ public class InboundOrder {
         this.items = items;
         this.shipmentInfo = shipmentInfo;
         this.supplier = supplier;
+        this.inboundType = inboundType;
         this.auditingInfo = auditingInfo;
     }
 }

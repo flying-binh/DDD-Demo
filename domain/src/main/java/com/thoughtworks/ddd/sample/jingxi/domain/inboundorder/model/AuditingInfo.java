@@ -4,5 +4,5 @@ import java.time.LocalDateTime;
 
 public class AuditingInfo {
     private String creator;
-    private LocalDateTime createdat;
+    private LocalDateTime createdAt;
 }
