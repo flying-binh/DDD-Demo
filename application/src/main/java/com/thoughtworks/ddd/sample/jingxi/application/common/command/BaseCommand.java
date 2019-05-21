@@ -1,7 +1,8 @@
-package com.thoughtworks.ddd.sample.jingxi.application.commom.command;
+package com.thoughtworks.ddd.sample.jingxi.application.common.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
