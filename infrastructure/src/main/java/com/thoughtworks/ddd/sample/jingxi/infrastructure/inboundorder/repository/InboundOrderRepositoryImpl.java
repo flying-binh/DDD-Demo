@@ -15,12 +15,12 @@ public class InboundOrderRepositoryImpl implements InboundOrderRepository {
 
     public InboundOrderRepositoryImpl(InboundOrderJapRepository inboundOrderJapRepository) {
         this.inboundOrderJapRepository = inboundOrderJapRepository;
-        orderMapper = null;
+        orderMapper = InboundOrderMapper.MAPPER;
     }
 
     @Override
     public InboundOrder store(InboundOrder inboundOrder) {
-        InboundOrderPo po = orderMapper.toPo(inboundOrder);
-        return orderMapper.toDomain(inboundOrderJapRepository.save(po));
+        InboundOrderPo po = orderMapper.toOrderPo(inboundOrder);
+        return orderMapper.toOrder(inboundOrderJapRepository.save(po));
     }
 }

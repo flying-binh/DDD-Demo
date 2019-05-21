@@ -1,13 +1,15 @@
 package com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class InboundOrder {
-    private String id;
+    private Long id;
     private Warehouse targetWarehouse;
     private List<InboundOrderItem> items;
     private ShipmentInfo shipmentInfo;
