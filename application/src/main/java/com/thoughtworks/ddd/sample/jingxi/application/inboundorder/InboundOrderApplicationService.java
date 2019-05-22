@@ -24,14 +24,18 @@ public class InboundOrderApplicationService {
     }
 
     public InboundOrderDto create(InboundOrderCreateCommand createCommand) {
-        final InboundOrder order = new InboundOrder(
+        final InboundOrder order = inboundOrderRepository.store(commandToOrder(createCommand));
+        eventPublisher.publish(new InboundOrderCreatedEvent(order));
+        return InboundOrderMapper.MAPPER.toDto(order);
+    }
+
+    private InboundOrder commandToOrder(InboundOrderCreateCommand createCommand) {
+        return new InboundOrder(
                 Warehouse.builder().code(createCommand.getWarehouseCode()).build(),
                 createCommand.getItems(),
                 Supplier.builder().code(createCommand.getSupplierCode()).build(),
                 createCommand.getShipmentInfo(),
                 createCommand.getInboundType(),
                 new AuditingInfo(createCommand.getOperator(), createCommand.getTriggerTime()));
-        eventPublisher.publish(new InboundOrderCreatedEvent());
-        return InboundOrderMapper.MAPPER.toDto(inboundOrderRepository.store(order));
     }
 }

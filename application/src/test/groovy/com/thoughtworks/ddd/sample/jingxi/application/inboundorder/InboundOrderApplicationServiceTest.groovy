@@ -2,15 +2,7 @@ package com.thoughtworks.ddd.sample.jingxi.application.inboundorder
 
 import com.thoughtworks.ddd.sample.jingxi.application.common.publish.EventPublisher
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.command.InboundOrderCreateCommand
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.AuditingInfo
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrder
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrderItem
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundType
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.OrderStatus
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.OrderType
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.ShipmentInfo
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Supplier
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Warehouse
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.*
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.repository.InboundOrderRepository
 import spock.lang.Specification
 
@@ -29,7 +21,7 @@ class InboundOrderApplicationServiceTest extends Specification {
         given: "an inbound-order-create-command"
           def createCommand = new InboundOrderCreateCommand(InboundType.PURCHASE,
                   new ShipmentInfo("E02394L934D3", LocalDate.now()),
-                  [new InboundOrderItem("N7130S2S0U876", 1000L)],
+                  [new InboundOrderItem(skuCode: "N7130S2S0U876", quantity: 1000L)],
                   "E0023J018439K129",
                   "V2EK2304W991",
                   "ZHAO Jialiang",
@@ -60,13 +52,13 @@ class InboundOrderApplicationServiceTest extends Specification {
 
     private static def prepareADraftOrder() {
         InboundOrder order = new InboundOrder(new Warehouse("W-NAME", "W-CODE"),
-                [new InboundOrderItem("S23461YH123P", 1000L)],
+                [new InboundOrderItem(skuCode: "S23461YH123P", quantity: 1000L)],
                 new Supplier("V023D91", "JMO"),
                 new ShipmentInfo("E00934R3123D234", LocalDate.now()),
                 InboundType.PURCHASE,
                 new AuditingInfo("CAI Jun", LocalDateTime.now())
         )
-        order.setId(UUID.randomUUID().toString())
+        order.setId(Math.random().longValue())
         order.setStatus(OrderStatus.DRAFT)
         order
     }
