@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxi.representation.inboundorder;
+package com.thoughtworks.ddd.sample.jingxi.representation.inboundorder.request;
 
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundType;
 import io.swagger.annotations.ApiModel;
@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -27,7 +28,7 @@ public class InboundOrderCreateRequest {
     private String targetWarehouse;
 
     @ApiModelProperty(notes = "inbound type: PURCHASE/ALLOCATION", required = true)
-    @NotBlank
+    @NotNull
     private InboundType type;
 
     @ApiModelProperty(notes = "inbound order items", required = true)
@@ -71,3 +72,4 @@ public class InboundOrderCreateRequest {
         private LocalDate deliveryDate;
     }
 }
+

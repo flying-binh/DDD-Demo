@@ -1,6 +1,6 @@
 package com.thoughtworks.ddd.sample.jingxi.application.inboundorder;
 
-import com.thoughtworks.ddd.sample.jingxi.application.common.publish.EventPublisher;
+import com.thoughtworks.ddd.sample.jingxi.domain.common.publish.EventPublisher;
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.command.InboundOrderCreateCommand;
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.dto.InboundOrderDto;
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.mapper.InboundOrderMapper;

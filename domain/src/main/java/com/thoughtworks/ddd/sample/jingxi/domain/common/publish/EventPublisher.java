@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxi.application.common.publish;
+package com.thoughtworks.ddd.sample.jingxi.domain.common.publish;
 
 import com.thoughtworks.ddd.sample.jingxi.domain.common.event.BaseEvent;
 

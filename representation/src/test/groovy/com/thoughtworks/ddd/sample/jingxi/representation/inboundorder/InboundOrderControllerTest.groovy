@@ -1,6 +1,5 @@
 package com.thoughtworks.ddd.sample.jingxi.representation.inboundorder
 
-import com.google.gson.Gson
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.InboundOrderApplicationService
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.command.InboundOrderCreateCommand
 import com.thoughtworks.ddd.sample.jingxi.domain.common.auditing.AuditingInfo
@@ -18,8 +17,8 @@ import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import spock.lang.Ignore
 import spock.lang.Specification
-import utils.DataHelper
 
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -28,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @AutoConfigureMockMvc
-@WebMvcTest(InboundOrderController)
+@WebMvcTest(InboundOrderController.class)
 class InboundOrderControllerTest extends Specification {
 
     @Autowired
@@ -37,6 +36,7 @@ class InboundOrderControllerTest extends Specification {
     @MockBean
     InboundOrderApplicationService applicationService
 
+    @Ignore
     def "we can create a warehouse entry"() {
         given: "a warehouse entry request"
 
@@ -44,8 +44,24 @@ class InboundOrderControllerTest extends Specification {
           applicationService.create(_ as InboundOrderCreateCommand) >> prepareACreatedInboundOrder()
 
         when: "we perform this warehouse entry request"
-          String payload = DataHelper.loadFixtureData("inbound-order/create-inbound-order.json")
-          print new Gson().fromJson(payload, InboundOrderCreateRequest)
+          String payload = "{\n" +
+                  "  \"type\": \"PURCHASE\",\n" +
+                  "  \"targetWarehouse\": \"WMS56Y932K\",\n" +
+                  "  \"items\": [\n" +
+                  "    {\n" +
+                  "      \"skuCode\": \"V4C5D6E2\",\n" +
+                  "      \"quantity\": 100\n" +
+                  "    },\n" +
+                  "    {\n" +
+                  "      \"skuCode\": \"V4C5D6E1\",\n" +
+                  "      \"quantity\": 50\n" +
+                  "    }\n" +
+                  "  ],\n" +
+                  "  \"shipmentInfo\": {\n" +
+                  "    \"sendDate\": \"2019-05-19\",\n" +
+                  "    \"transactionNo\": \"TRX-SXX2019051805XDJ34D8L9\"\n" +
+                  "  }\n" +
+                  "}"
           def result = mvc.perform(MockMvcRequestBuilders.post("/inbound-orders")
                   .contentType(MediaType.APPLICATION_JSON_UTF8)
                   .content(payload))

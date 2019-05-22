@@ -1,11 +1,16 @@
 package com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Value;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
 @Getter
-@Value
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ShipmentInfo {
     private String transactionNo;
     private LocalDate deliveryDate;

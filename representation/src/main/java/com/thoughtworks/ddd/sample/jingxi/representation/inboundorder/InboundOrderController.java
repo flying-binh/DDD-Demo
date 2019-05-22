@@ -5,6 +5,7 @@ import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.command.Inbou
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.dto.InboundOrderDto;
 import com.thoughtworks.ddd.sample.jingxi.representation.configuration.security.CurrentUser;
 import com.thoughtworks.ddd.sample.jingxi.representation.inboundorder.mapper.InboundOrderMapper;
+import com.thoughtworks.ddd.sample.jingxi.representation.inboundorder.request.InboundOrderCreateRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

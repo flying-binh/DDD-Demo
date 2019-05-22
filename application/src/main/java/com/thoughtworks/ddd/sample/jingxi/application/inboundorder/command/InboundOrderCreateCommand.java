@@ -4,14 +4,14 @@ import com.thoughtworks.ddd.sample.jingxi.application.common.command.BaseCommand
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrderItem;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundType;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.ShipmentInfo;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Value;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-@Value
+@EqualsAndHashCode(callSuper=false)
 public class InboundOrderCreateCommand extends BaseCommand {
 
     private InboundType inboundType;
