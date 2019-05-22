@@ -1,6 +1,6 @@
 package com.thoughtworks.ddd.sample.jingxi.infrastructure.inboundorder.repository
 
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.AuditingInfo
+import com.thoughtworks.ddd.sample.jingxi.domain.common.auditing.AuditingInfo
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrder
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrderItem
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundType

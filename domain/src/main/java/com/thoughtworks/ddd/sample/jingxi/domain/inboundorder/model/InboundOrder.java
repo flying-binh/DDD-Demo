@@ -1,5 +1,6 @@
 package com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model;
 
+import com.thoughtworks.ddd.sample.jingxi.domain.common.auditing.AuditingInfo;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,10 +15,10 @@ public class InboundOrder {
     private List<InboundOrderItem> items;
     private ShipmentInfo shipmentInfo;
     private Supplier supplier;
-    private AuditingInfo auditingInfo;
     private InboundType inboundType;
     private OrderStatus status;
     private final OrderType type = OrderType.INBOUND;
+    private AuditingInfo auditingInfo;
 
     public InboundOrder(Warehouse targetWarehouse,
                         List<InboundOrderItem> items,

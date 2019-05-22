@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model;
+package com.thoughtworks.ddd.sample.jingxi.domain.common.auditing;
 
 import lombok.Getter;
 import lombok.Value;

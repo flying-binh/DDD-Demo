@@ -5,7 +5,7 @@ import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.command.Inbou
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.dto.InboundOrderDto;
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.mapper.InboundOrderMapper;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.event.InboundOrderCreatedEvent;
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.AuditingInfo;
+import com.thoughtworks.ddd.sample.jingxi.domain.common.auditing.AuditingInfo;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrder;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Supplier;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Warehouse;

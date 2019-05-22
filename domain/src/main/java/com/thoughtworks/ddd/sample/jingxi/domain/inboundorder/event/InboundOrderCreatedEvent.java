@@ -6,6 +6,7 @@ import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundType;
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.OrderStatus;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -16,9 +17,10 @@ public class InboundOrderCreatedEvent extends BaseEvent {
     private OrderStatus status;
 
     public InboundOrderCreatedEvent(InboundOrder inboundOrder) {
-        super(inboundOrder.getAuditingInfo().getCreator(), LocalDateTime.now());
-        this.inboundOrderId = inboundOrder.getId();
-        this.inboundType = inboundOrder.getInboundType();
-        this.status = inboundOrder.getStatus();
+        super(null, LocalDateTime.now());
+//        super(inboundOrder.getAuditingInfo().getCreator(), LocalDateTime.now());
+//        this.inboundOrderId = inboundOrder.getId();
+//        this.inboundType = inboundOrder.getInboundType();
+//        this.status = inboundOrder.getStatus();
     }
 }

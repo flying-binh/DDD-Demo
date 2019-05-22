@@ -2,7 +2,14 @@ package com.thoughtworks.ddd.sample.jingxi.application.inboundorder
 
 import com.thoughtworks.ddd.sample.jingxi.application.common.publish.EventPublisher
 import com.thoughtworks.ddd.sample.jingxi.application.inboundorder.command.InboundOrderCreateCommand
-import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.*
+import com.thoughtworks.ddd.sample.jingxi.domain.common.auditing.AuditingInfo
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrder
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundOrderItem
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundType
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.OrderStatus
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.ShipmentInfo
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Supplier
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.Warehouse
 import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.repository.InboundOrderRepository
 import spock.lang.Specification
 
