@@ -5,6 +5,38 @@
 写这个sample的目的主要想把好几个项目中总结出来的经验以案例的形式分享出来，供大家在不同的项目中进行参考。
 同时也希望能够帮助大家在新的项目中可以更好的借鉴已有经验，减少DDD在实现落地上的资源浪费。
 
+## How To Start This Project
+
+### Prepare Local Environment 
+
+1. 本地需要安装Java, 版本要求：jdk8+
+
+    * MacOS
+    * Windows
+    * Linux
+    
+2. 本地需要安装Gradle， 版本要求：gradle5.4+
+    * MacOS
+    * Windows
+    * Linux
+
+### Run Application
+
+1. 通过命令行
+
+    * start 进入工程根目录下，执行 ```gradle bootRun```
+    * stop  需要结束程序运行，直接在命令行工具中执行 ```ctrl+c``` 
+
+2. 通过IDE工具(Intellij)
+
+    导入工程到intellij工具中。
+
+    * 工具栏运行按钮
+
+    * gradle插件
+
+
+
 ## Project Structure
 
 ![architecture](documents/architecture.jpg)
