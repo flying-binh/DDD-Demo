@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxi.application.inboundorder.representation.inboundorder;
+package com.thoughtworks.ddd.sample.jingxi.representation.inboundorder;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,10 @@
-package com.thoughtworks.ddd.sample.jingxi.application.inboundorder.representation.inboundorder;
+package com.thoughtworks.ddd.sample.jingxi.representation.inboundorder;
 
-import lombok.*;
+import com.thoughtworks.ddd.sample.jingxi.domain.inboundorder.model.InboundType;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;

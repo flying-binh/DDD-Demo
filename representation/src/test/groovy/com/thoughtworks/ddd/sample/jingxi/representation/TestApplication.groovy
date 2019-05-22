@@ -1,4 +1,4 @@
-package com.thoughtworks.ddd.sample.jingxi.application.inboundorder
+package com.thoughtworks.ddd.sample.jingxi.representation
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
