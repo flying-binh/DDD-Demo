@@ -1,12 +1,17 @@
 package com.thoughtworks.ddd.sample.jingxi.domain.common.auditing;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Value;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
-@Value
+@Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AuditingInfo {
-    private String creator;
+    private String operator;
     private LocalDateTime createdAt;
 }

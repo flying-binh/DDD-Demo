@@ -8,6 +8,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
+
 import java.util.List;
 
 @Mapper
@@ -18,14 +19,18 @@ public interface InboundOrderMapper {
     @Mappings({
             @Mapping(target = "targetWarehouse.code", source = "targetWarehouse"),
             @Mapping(target = "supplier.code", source = "supplierCode"),
-            @Mapping(target = "items", source = "items", qualifiedByName = "toItemPoList")
+            @Mapping(target = "items", source = "items", qualifiedByName = "toItemPoList"),
+            @Mapping(target = "auditingInfo.operator", source = "createdBy"),
+            @Mapping(target = "auditingInfo.createdAt", source = "createdAt")
     })
     InboundOrder toOrder(InboundOrderPo po);
 
     @Mappings({
             @Mapping(target = "targetWarehouse", source = "targetWarehouse.code"),
             @Mapping(target = "supplierCode", source = "supplier.code"),
-            @Mapping(target = "items", source = "items", qualifiedByName = "toItemList")
+            @Mapping(target = "items", source = "items", qualifiedByName = "toItemList"),
+            @Mapping(target = "createdBy", source = "auditingInfo.operator"),
+            @Mapping(target = "createdAt", source = "auditingInfo.createdAt")
     })
     InboundOrderPo toOrderPo(InboundOrder order);
 

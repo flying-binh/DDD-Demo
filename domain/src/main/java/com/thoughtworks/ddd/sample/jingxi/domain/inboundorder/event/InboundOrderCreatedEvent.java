@@ -16,7 +16,7 @@ public class InboundOrderCreatedEvent extends BaseEvent {
     private OrderStatus status;
 
     public InboundOrderCreatedEvent(InboundOrder inboundOrder) {
-        super(inboundOrder.getAuditingInfo().getCreator(), LocalDateTime.now());
+        super(inboundOrder.getAuditingInfo().getOperator(), LocalDateTime.now());
         this.inboundOrderId = inboundOrder.getId();
         this.inboundType = inboundOrder.getInboundType();
         this.status = inboundOrder.getStatus();
