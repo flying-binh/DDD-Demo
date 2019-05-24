@@ -21,7 +21,8 @@ public interface InboundOrderMapper {
             @Mapping(target = "supplier.code", source = "supplierCode"),
             @Mapping(target = "items", source = "items", qualifiedByName = "toItemPoList"),
             @Mapping(target = "auditingInfo.operator", source = "createdBy"),
-            @Mapping(target = "auditingInfo.createdAt", source = "createdAt")
+            @Mapping(target = "auditingInfo.createdAt", source = "createdAt"),
+            @Mapping(target = "type", ignore = true)
     })
     InboundOrder toOrder(InboundOrderPo po);
 
@@ -30,7 +31,8 @@ public interface InboundOrderMapper {
             @Mapping(target = "supplierCode", source = "supplier.code"),
             @Mapping(target = "items", source = "items", qualifiedByName = "toItemList"),
             @Mapping(target = "createdBy", source = "auditingInfo.operator"),
-            @Mapping(target = "createdAt", source = "auditingInfo.createdAt")
+            @Mapping(target = "createdAt", source = "auditingInfo.createdAt"),
+            @Mapping(target = "orderType", source = "type")
     })
     InboundOrderPo toOrderPo(InboundOrder order);
 
