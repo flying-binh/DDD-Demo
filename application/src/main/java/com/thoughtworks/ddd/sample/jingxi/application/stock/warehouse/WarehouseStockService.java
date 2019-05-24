@@ -8,6 +8,7 @@ import com.thoughtworks.ddd.sample.jingxi.domain.stock.warehouse.model.Increment
 import com.thoughtworks.ddd.sample.jingxi.domain.stock.warehouse.model.WarehouseStock;
 import com.thoughtworks.ddd.sample.jingxi.domain.stock.warehouse.repository.WarehouseStockRepository;
 import com.thoughtworks.ddd.sample.jingxi.domain.stock.warehouse.service.SkuRegisterDomainService;
+import com.thoughtworks.ddd.sample.jingxi.domain.stock.wms.event.SkuInboundedIntoWmsEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
@@ -48,5 +49,11 @@ public class WarehouseStockService {
         List<Increment> increments = warehouseStock.inbound(inboundOrder);
 
         warehouseStockRepository.merge(increments);
+    }
+
+    @EventListener
+    public void skuStockInWarehouse(SkuInboundedIntoWmsEvent event) {
+        WarehouseStock stock = warehouseStockRepository.getOne(event.getWarehouse());
+
     }
 }
