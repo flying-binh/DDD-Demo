@@ -11,4 +11,10 @@ public class InboundItem {
         this.sku = sku;
         this.quantity = quantity;
     }
+
+    public InboundItem summary(InboundItem another) {
+        assert sku.equals(another.getSku());
+        this.quantity += another.quantity;
+        return this;
+    }
 }

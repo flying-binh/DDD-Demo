@@ -22,4 +22,12 @@ public class SkuStock {
     public SkuStock(String sku) {
         this(sku, ZERO.longValue(), ZERO.longValue());
     }
+
+    public void addInTransitQuantity(Long change) {
+        this.inTransitQuantity += change;
+    }
+
+    public void addPhysicalQuantity(Long change) {
+        this.physicalQuantity += change;
+    }
 }

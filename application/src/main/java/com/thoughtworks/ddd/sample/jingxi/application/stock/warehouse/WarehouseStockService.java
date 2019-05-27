@@ -42,6 +42,7 @@ public class WarehouseStockService {
     private void inbound(WarehouseStock warehouseStock, InboundOrderSubmittedEvent event) {
         InboundOrder inboundOrder = new InboundOrder(event.getInboundOrderId(),
                 event.getInboundType(),
+                event.getStatus(),
                 event.getItems()
                         .stream()
                         .map(item -> new InboundItem(item.getSkuCode(), item.getQuantity()))
