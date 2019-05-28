@@ -1,19 +1,17 @@
 package com.thoughtworks.ddd.sample.jingxi.domain.stock.warehouse.model;
 
+import com.thoughtworks.ddd.sample.jingxi.domain.stock.warehouse.service.inbound.strategy.InboundStrategyFactory;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.function.Function;
 
 import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toMap;
+import static java.util.stream.Collectors.toList;
 
 @Getter
 @Setter
@@ -26,7 +24,7 @@ public class WarehouseStock {
 
     public List<Increment> inbound(InboundOrder inboundOrder) {
 
-        Map<String, InboundItem> items = inboundOrder.getInboundItems()
+        List<InboundItem> items = inboundOrder.getInboundItems()
                 .stream()
                 .collect(groupingBy(InboundItem::getSku))
                 .values()
@@ -34,9 +32,9 @@ public class WarehouseStock {
                 .map(inboundItems -> inboundItems.stream().reduce(InboundItem::summary))
                 .filter(Optional::isPresent)
                 .map(Optional::get)
-                .collect(toMap(InboundItem::getSku, Function.identity()));
+                .collect(toList());
 
-        return Collections.emptyList();
+        return InboundStrategyFactory.getStrategy(inboundOrder.getStatus()).inbound(this, items);
     }
 
     public void outbound(OutboundOrder outbountOrder) {

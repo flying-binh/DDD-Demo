@@ -12,13 +12,13 @@ import java.time.LocalDateTime
 
 import static org.assertj.core.util.Sets.newHashSet
 
-class WarehouseWarehouseStockServiceTest extends Specification {
+class WarehouseWarehouseStockApplicationServiceTest extends Specification {
 
-    WarehouseStockService applicationService
+    WarehouseStockApplicationService applicationService
     def stockRepository = Mock(WarehouseStockRepository)
 
     void setup() {
-        applicationService = new WarehouseStockService(stockRepository)
+        applicationService = new WarehouseStockApplicationService(stockRepository)
     }
 
     def "we need to increase the sku inventory when an inbound order was submitted"() {

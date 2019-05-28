@@ -7,17 +7,23 @@ import com.thoughtworks.ddd.sample.jingxi.domain.stock.warehouse.model.Warehouse
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.math.BigInteger.ZERO;
+/**
+ * The sku(product) stocked into warehouse, and the wms system published
+ * and SkuStockedIn event.
+ * then we need to
+ * (1) increase the sku physical quantity
+ * and
+ * (2) decrease the in transit quantity
+ */
+public class SkuStockedIntoWarehouseStrategy implements InboundStrategy {
 
-public class OrderSubmittedInboundStrategy implements InboundStrategy {
-
+    @Override
     public List<Increment> inbound(WarehouseStock stock, List<InboundItem> inboundItems) {
         return inboundItems.stream()
                 .map(item -> new Increment(stock.getWarehouse(),
                         item.getSku(),
-                        item.getQuantity(),
-                        ZERO.longValue()))
+                        -item.getQuantity(),
+                        item.getQuantity()))
                 .collect(Collectors.toList());
     }
-
 }
