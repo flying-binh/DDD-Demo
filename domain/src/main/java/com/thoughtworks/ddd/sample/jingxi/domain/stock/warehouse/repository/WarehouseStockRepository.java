@@ -11,5 +11,11 @@ public interface WarehouseStockRepository {
 
     void store(WarehouseStock stock);
 
+    /**
+     * Repository implemantation way I : merge a new dto or vo to database
+     * this is not a suggestion way.
+     * If we have a lot of case, then we have to define a lot of method to update the database info.
+     * @param increments
+     */
     void merge(List<Increment> increments);
 }
