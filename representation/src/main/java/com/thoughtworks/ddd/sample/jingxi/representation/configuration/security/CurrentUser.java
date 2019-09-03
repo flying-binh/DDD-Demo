@@ -9,7 +9,7 @@ import java.util.Optional;
 
 import static org.springframework.web.context.request.RequestAttributes.SCOPE_REQUEST;
 
-public class CurrentUser {
+public final class CurrentUser {
 
     public static String getCurrentUser() {
         return Optional.ofNullable(RequestContextHolder.currentRequestAttributes())
