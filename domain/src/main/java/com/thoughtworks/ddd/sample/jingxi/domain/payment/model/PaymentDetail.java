@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class PaymentDetail {
+    private Long id;
     private String fromAccount;
     private String toAccount;
     private double paymentAmount;

@@ -12,8 +12,10 @@ public class PaymentDetailCreatedEvent extends BaseEvent {
     private String toAccount;
     private double paymentAmount;
     private LocalDateTime paymentTime;
+
     public PaymentDetailCreatedEvent(PaymentDetail paymentDetail) {
-        super(paymentDetail.getAuditingInfo().getOperator(), paymentDetail.getAuditingInfo().getCreatedAt());
+        super(paymentDetail.getAuditingInfo() != null ? paymentDetail.getAuditingInfo().getOperator() : "system",
+            paymentDetail.getAuditingInfo() != null ? paymentDetail.getAuditingInfo().getCreatedAt() : LocalDateTime.now());
         this.fromAccount = paymentDetail.getFromAccount();
         this.toAccount = paymentDetail.getToAccount();
         this.paymentAmount = paymentDetail.getPaymentAmount();

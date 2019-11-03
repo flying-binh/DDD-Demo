@@ -17,9 +17,9 @@ public class PaymentDetailRepositoryImpl implements PaymentDetailRepository {
 
     private PaymentDetailMapper paymentDetailMapper;
 
-    public PaymentDetailRepositoryImpl(PaymentDetailJpaRepository paymentDetailJpaRepository, PaymentDetailMapper paymentDetailMapper) {
+    public PaymentDetailRepositoryImpl(PaymentDetailJpaRepository paymentDetailJpaRepository) {
         this.paymentDetailJpaRepository = paymentDetailJpaRepository;
-        this.paymentDetailMapper = paymentDetailMapper;
+        this.paymentDetailMapper = PaymentDetailMapper.MAPPER;
     }
 
     @Override
