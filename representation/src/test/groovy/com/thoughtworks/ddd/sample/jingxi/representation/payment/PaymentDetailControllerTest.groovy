@@ -1,11 +1,10 @@
-package com.thoughtworks.ddd.sample.jingxi.representation.inboundorder
+package com.thoughtworks.ddd.sample.jingxi.representation.payment
 
 
 import com.thoughtworks.ddd.sample.jingxi.application.payment.PaymentDetailApplicationService
 import com.thoughtworks.ddd.sample.jingxi.application.payment.command.PaymentDetailCreateCommand
 import com.thoughtworks.ddd.sample.jingxi.domain.common.auditing.AuditingInfo
 import com.thoughtworks.ddd.sample.jingxi.domain.payment.model.PaymentDetail
-import com.thoughtworks.ddd.sample.jingxi.representation.payment.PaymentDetailController
 import org.hamcrest.Matchers
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -34,13 +33,13 @@ class PaymentDetailControllerTest extends Specification {
   PaymentDetailApplicationService applicationService
 
   @Ignore
-  def "we can create a warehouse entry"() {
-    given: "a warehouse entry request"
+  def "we can create a payment detail"() {
+    given: "a payment detail request"
 
     and: ""
-    applicationService.create(_ as PaymentDetailCreateCommand) >> prepareACreatedInboundOrder()
+    applicationService.create(_ as PaymentDetailCreateCommand) >> prepareACreatedPay()
 
-    when: "we perform this warehouse entry request"
+    when: "we perform this payment detail entry request"
     String payload = "{\n" +
       "  \"type\": \"PURCHASE\",\n" +
       "  \"targetWarehouse\": \"WMS56Y932K\",\n" +
@@ -59,17 +58,17 @@ class PaymentDetailControllerTest extends Specification {
       "    \"transactionNo\": \"TRX-SXX2019051805XDJ34D8L9\"\n" +
       "  }\n" +
       "}"
-    def result = mvc.perform(MockMvcRequestBuilders.post("/inbound-orders")
+    def result = mvc.perform(MockMvcRequestBuilders.post("/payments")
       .contentType(MediaType.APPLICATION_JSON_UTF8)
       .content(payload))
 
-    then: "we will get a warehouse entry"
+    then: "we will get a payment detail"
     result.andExpect(status().isOk())
       .andExpect(jsonPath('$.id', Matchers.notNullValue()))
 
   }
 
-  private static final PaymentDetail prepareACreatedInboundOrder() {
+  private static final PaymentDetail prepareACreatedPay() {
     PaymentDetail order = new PaymentDetail(
       "1",
       "a",
