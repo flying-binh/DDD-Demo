@@ -1,4 +1,4 @@
-rootProject.name = 'cbg.ddd.sample'
+rootProject.name = 'anything.ddd.sample'
 include 'representation'
 include 'application'
 include 'infrastructure'
